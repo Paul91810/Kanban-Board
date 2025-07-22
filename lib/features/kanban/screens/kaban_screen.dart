@@ -18,7 +18,17 @@ class KanbanScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Kanban Board'),
+        backgroundColor: Colors.white,
+        title: Row(
+          children: [
+            Icon(Icons.dashboard_customize, color: Colors.deepOrange, size: 32),
+            SizedBox(width: 8),
+            Text(
+              'Kanban Board',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.sync),
@@ -34,11 +44,9 @@ class KanbanScreen extends StatelessWidget {
           ),
         ],
       ),
-      body:
-       Row(
+      body: Row(
         children: TaskStatus.values.map((status) {
           final statusTasks = taskProvider.getByStatus(status);
-
           return Expanded(
             child: KanbanColumn(
               status: status,
@@ -76,7 +84,11 @@ class KanbanScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(child: const Text("⏳ Some tasks are pending sync or upload...")),
+                  Expanded(
+                    child: const Text(
+                      "⏳ Some tasks are pending sync or upload...",
+                    ),
+                  ),
                   TextButton.icon(
                     icon: const Icon(Icons.sync),
                     label: const Text("Sync Now"),
