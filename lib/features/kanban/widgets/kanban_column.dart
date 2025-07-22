@@ -28,7 +28,7 @@ class KanbanColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DragTarget<TaskModel>(
-      onWillAccept: (_) => true,
+      onWillAcceptWithDetails : (_) => true,
       onAccept: onTaskDropped,
       builder: (context, candidateData, rejectedData) {
         return Container(
@@ -42,6 +42,7 @@ class KanbanColumn extends StatelessWidget {
           child: Column(
             children: [
               Text(statusLabel, style: Theme.of(context).textTheme.titleLarge),
+              Divider(),
               const SizedBox(height: 8),
               Expanded(
                 child: ListView.builder(

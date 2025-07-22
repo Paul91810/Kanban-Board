@@ -34,7 +34,8 @@ class KanbanScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Row(
+      body:
+       Row(
         children: TaskStatus.values.map((status) {
           final statusTasks = taskProvider.getByStatus(status);
 
@@ -75,7 +76,7 @@ class KanbanScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text("⏳ Some tasks are pending sync or upload..."),
+                  Expanded(child: const Text("⏳ Some tasks are pending sync or upload...")),
                   TextButton.icon(
                     icon: const Icon(Icons.sync),
                     label: const Text("Sync Now"),

@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:kanban_board/features/kanban/controllers/add_task_controller.dart';
 import 'package:kanban_board/features/kanban/controllers/conectivity_controller.dart';
 import 'package:kanban_board/features/kanban/controllers/taskpr_controller.dart';
 import 'package:kanban_board/features/kanban/controllers/uplode_controller.dart';
@@ -18,7 +19,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => TaskProvider()),
         ChangeNotifierProvider(create: (_) => ConnectivityProvider()),
         ChangeNotifierProvider(create: (_) => UploadProvider()),
-        // Add other providers here
+        ChangeNotifierProvider(create: (_) => AddTaskProvider()),
       ],
       child: const MyApp(),
     ),

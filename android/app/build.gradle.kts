@@ -12,7 +12,7 @@ dependencies {
 android {
     namespace = "com.example.kanban_board"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
